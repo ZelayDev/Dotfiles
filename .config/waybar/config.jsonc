@@ -1,0 +1,110 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 22,
+    "spacing": 0,
+    
+    "margin-top": 4,
+    "margin-bottom": 0,
+    "margin-left": 6,
+    "margin-right": 6,
+
+    "modules-left": ["custom/logo", "hyprland/workspaces"],
+    "modules-center": ["clock#time", "custom/separator", "clock#date"],
+    "modules-right":
+	[
+        "hyprland/language", 
+        "custom/separator",
+        "cpu", "memory", "custom/gpu", 
+        "custom/separator",
+        "bluetooth", "network", 
+        "custom/separator",
+        "custom/power"
+    ],
+
+    // --- Left panel ---
+    "custom/logo":
+	{
+        "format": "",
+        "tooltip": false
+    },
+    "hyprland/workspaces":
+	{
+        "format": "{icon}",
+        "show-special": false,
+        "all-outputs": true,
+        "persistent-workspaces":
+		{
+            "1": [], "2": [], "3": [], "4": [], "5": [],
+            "6": [], "7": [], "8": [], "9": [], "10": []
+        },
+        "format-icons":
+		{
+            "1": "1", "2": "2", "3": "3", "4": "4", "5": "5",
+            "6": "6", "7": "7", "8": "8", "9": "9", "10": "0"
+        }
+    },
+
+    // --- Center panel ---
+    "clock#time":
+	{
+        "format": "{:%H:%M}",
+        "tooltip": false
+    },
+    "clock#date": {
+        "format": "{:%d.%m}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+    // --- ПРАВАЯ ПАНЕЛЬ ---
+    "hyprland/language": {
+        "format": "{}",
+        "format-en": "EN",
+        "format-ru": "RU"
+    },
+    "cpu": {
+        "format": " {usage:3}%",
+        "interval": 2
+    },
+    "memory": {
+        "format": " {percentage:3}%",
+        "interval": 3
+    },
+    "custom/gpu":
+	{
+        "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits | awk '{printf \"   %3d%%\\n\", $1}'",
+        "interval": 3,
+        "format": "{}",
+        "tooltip": false
+    },
+    "bluetooth":
+	{
+        "format": " ",
+        "format-connected": " {num_connections}",
+        "tooltip-format": "{controller_alias}\t{controller_address}",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+		"on-click": "~/Scripts/controlcenter"
+    },
+    "network":
+	{
+        "format-wifi": " ",
+        "format-ethernet": "   ",
+        "format-disconnected": "   ",
+        "tooltip-format": "{essid} ({signalStrength}%)",
+		"on-click": "~/Scripts/controlcenter"
+    },
+    "custom/power":
+	{
+        "format": "⏻",
+        "tooltip": false,
+        "on-click": "~/.config/rofi/scripts/powermenu.sh"
+    },
+
+    "custom/separator":
+	{
+        "format": "|",
+        "tooltip": false
+    }
+}
+

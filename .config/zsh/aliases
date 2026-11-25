@@ -1,0 +1,2 @@
+alias hyprconf="nano ~/.config/hypr/hyprland.lua"
+alias consolio="/home/zelay/Projects/Consolio/Consolio/bin/Debug/net10.0/Consolio"

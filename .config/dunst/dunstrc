@@ -1,0 +1,26 @@
+[global]
+    timeout = 2
+    monitor = 0
+    follow = mouse
+    width = 320
+    height = (0, 150)
+    origin = top-right
+    offset = (5, 5)
+    scale = 0
+
+    frame_width = 2
+    frame_color = "#f5c2e7"
+    gap_size = 8
+    corner_radius = 12
+
+    font = JetBrainsMono Nerd Font 11
+    
+    padding = 15
+    horizontal_padding = 15
+
+    background = "#1c1c1c"
+    foreground = "#ffffff"
+    
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    icon_position = left

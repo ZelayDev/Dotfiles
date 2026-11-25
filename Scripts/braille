@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+mode=8
+dots=""
+
+while getopts ":ho" opt; do
+    case "$opt" in
+        h) mode=6 ;;
+        o) mode=8 ;;
+        *) ;;
+    esac
+done
+shift $((OPTIND - 1))
+
+dots="${1:-}"
+
+if [[ -z "$dots" ]]; then
+    echo "14 14"
+    echo "25 25"
+    echo "36 36"
+    echo "   78"
+    exit 0
+fi
+
+[[ "$dots" =~ ^[0-9]+$ ]] || exit 1
+
+for (( i=0; i<${#dots}; i++ )); do
+    d="${dots:$i:1}"
+    if (( mode == 6 )); then
+        (( d >= 1 && d <= 6 )) || exit 1
+    else
+        (( d >= 1 && d <= 8 )) || exit 1
+    fi
+done
+
+declare -A has=()
+for (( i=0; i<${#dots}; i++ )); do
+    has["${dots:$i:1}"]=1
+done
+
+mask=0
+for d in "${!has[@]}"; do
+    (( mask |= 1 << (d - 1) ))
+done
+
+codepoint=$(( 0x2800 + mask ))
+printf -v hex '%08x' "$codepoint"
+printf -v symbol "\U$hex"
+
+printf '%s\n' "$symbol"

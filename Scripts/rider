@@ -1,0 +1,3 @@
+#!/bin/bash
+
+open /home/zelay/.local/opt/JetBrains_Rider/bin/rider.sh

@@ -1,0 +1,159 @@
+@define-color outer-bg rgba(21, 21, 21, 0.6);
+@define-color inner-bg #1c1c1c;
+
+@define-color ws-active #f5c2e7;
+@define-color ws-occupied #99c4ff;
+@define-color ws-empty #55576a;
+
+@define-color text-main #ffffff;
+@define-color sep-color rgba(255, 255, 255, 0.2);
+
+*
+{
+	border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font Light", "JetBrainsMono NF Light", sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    min-height: 0;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+window#waybar
+{
+    background-color: transparent;
+    margin: 3px 3px;
+}
+
+window#waybar > box
+{
+    background-color: @outer-bg;
+    border-radius: 5px;
+	padding: 0;                        
+}
+
+.modules-left,
+.modules-center,
+.modules-right
+{
+    background-color: @inner-bg;
+    color: @text-main;
+    margin: 0 2px;                     
+    padding: 0 8px;                    
+    border-radius: 5px;
+}
+
+.modules-left
+{
+    margin-left: 0; 
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.modules-right
+{
+    margin-right: 0; 
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#custom-logo,
+#workspaces,
+#clock,
+#language,
+#cpu,
+#memory,
+#custom-gpu,
+#bluetooth,
+#network,
+#custom-power
+{
+    padding: 0 4px;
+}
+
+/*LEFT PANEL*/
+#custom-logo
+{
+    color: #89b4fa; 
+    font-size: 13px;
+    padding-left: 2px;
+    padding-right: 6px;
+}
+
+#workspaces
+{
+    padding-left: 0;
+    padding-right: 2px;
+}
+
+#workspaces button
+{
+    color: @ws-empty;
+    padding: 0 3px;
+    margin: 0;
+    background: transparent;
+}
+
+#workspaces button:hover
+{
+    background: transparent;
+    color: @ws-occupied;
+}
+
+#workspaces button.visible,
+#workspaces button.persistent
+{
+    color: @ws-empty;
+}
+
+#workspaces button.occupied
+{
+    color: @ws-occupied;
+    font-weight: 400;
+}
+
+#workspaces button.occupied:hover
+{
+    color: @ws-active;
+}
+
+#workspaces button.active
+{
+    color: @ws-active;
+    font-weight: 600;
+}
+
+#workspaces button.active:hover
+{
+    color: @ws-active;
+}
+
+#workspaces button.urgent {
+    color: #f38ba8;
+}
+
+
+/*CENTRAL PANEL*/
+#clock
+{
+    color: @text-main;
+    padding: 0 12px;
+}
+
+/*RIGHT PANEL*/
+#language { color: @text-main; }
+#cpu { color: @text-main; }
+#memory { color: @text-main; }
+#custom-gpu { color: @text-main; }
+#bluetooth { color: @text-main; }
+#network { color: @text-main; }
+#custom-power { color: @text-main; }
+
+#custom-separator
+{
+    color: @sep-color;
+    padding: 0 4px;
+    font-size: 10px;
+}
+

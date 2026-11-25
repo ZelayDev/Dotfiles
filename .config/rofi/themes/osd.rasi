@@ -1,0 +1,32 @@
+* {
+    background-color: transparent;
+    text-color: #ffffff;
+    font: "JetBrainsMono Nerd Font 48"; /* Большой шрифт */
+}
+
+window {
+    width: 150px;
+    padding: 20px;
+    background-color: rgba(21, 21, 21, 0.85);
+    border: 2px;
+    border-color: #f5c2e7;
+    border-radius: 16px;
+    location: north; /* Позиция сверху по центру */
+    anchor: north;
+    y-offset: 50px;
+}
+
+inputbar {
+    enabled: false;
+}
+
+listview {
+    lines: 1;
+    columns: 1;
+    fixed-height: true;
+}
+
+element {
+    padding: 10px;
+    background-color: transparent;
+}

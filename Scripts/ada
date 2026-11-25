@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if [ -z "$1" ] || [ -z "$2" ]; then
+    echo "Usage: addalias <AliasName> \"<Command>\""
+    echo "Example: addalias ll \"ls -la\""
+    exit 1
+fi
+
+ALIAS_NAME="$1"
+ALIAS_COMMAND="$2"
+ALIAS_FILE="$HOME/.config/zsh/aliases"
+
+if grep -q "^alias $ALIAS_NAME=" "$ALIAS_FILE" 2>/dev/null; then
+    echo "Error: Alias '$ALIAS_NAME' already exists in $ALIAS_FILE"
+    exit 1
+fi
+
+echo "alias $ALIAS_NAME=\"$ALIAS_COMMAND\"" >> "$ALIAS_FILE"
+echo "Success: Added alias '$ALIAS_NAME' to $ALIAS_FILE"
+
+source "$ALIAS_FILE"

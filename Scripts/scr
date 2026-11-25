@@ -1,0 +1,20 @@
+#!/bin/bash
+
+SCRIPTS_DIR="$HOME/Scripts"
+
+if [ -z "$1" ]; then
+    echo "Usage: scr <script_name>"
+    exit 1
+fi
+
+FILE_NAME="$1"
+FILE_PATH="$SCRIPTS_DIR/$FILE_NAME"
+
+if [ -f "$FILE_PATH" ]; then
+    edit "$FILE_PATH"
+else
+    echo '#!/bin/bash' > "$FILE_PATH"
+    echo "" >> "$FILE_PATH"
+    edit "$FILE_PATH"
+    chmod +x "$FILE_PATH"
+fi

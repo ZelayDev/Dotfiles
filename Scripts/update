@@ -1,0 +1,24 @@
+#!/bin/bash
+
+if [ "$EUID" -ne 0 ]; then
+  echo "Error: Please run as root (sudo update)"
+  exit 1
+fi
+
+if command -v reflector &> /dev/null; then
+    echo "Updating mirrors (Russia, Germany, Netherlands, China)..."
+    reflector --country Russia,Germany,Netherlands,China --sort rate --save /etc/pacman.d/mirrorlist
+    echo "Mirrors updated."
+else
+    echo "Warning: 'reflector' is not installed. Skipping mirror update."
+fi
+
+if [ -n "$SUDO_USER" ]; then
+    echo "Starting system update..."
+    sudo -u "$SUDO_USER" paru -Syu
+else
+    echo "Error: SUDO_USER is not set. Please run this script via 'sudo'."
+    exit 1
+fi
+
+echo "Update finished!"
