@@ -56,17 +56,20 @@
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
 
-    // --- ПРАВАЯ ПАНЕЛЬ ---
-    "hyprland/language": {
+    // --- Right panel ---
+    "hyprland/language":
+	{
         "format": "{}",
         "format-en": "EN",
         "format-ru": "RU"
     },
-    "cpu": {
+    "cpu":
+	{
         "format": " {usage:3}%",
         "interval": 2
     },
-    "memory": {
+    "memory":
+	{
         "format": " {percentage:3}%",
         "interval": 3
     },
@@ -84,7 +87,7 @@
         "tooltip-format": "{controller_alias}\t{controller_address}",
         "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-		"on-click": "~/Scripts/controlcenter"
+		"on-click": "~/.config/scripts/control_center.sh"
     },
     "network":
 	{
@@ -92,7 +95,7 @@
         "format-ethernet": "   ",
         "format-disconnected": "   ",
         "tooltip-format": "{essid} ({signalStrength}%)",
-		"on-click": "~/Scripts/controlcenter"
+		"on-click": "~/.config/scripts/control_center.sh"
     },
     "custom/power":
 	{
@@ -107,4 +110,3 @@
         "tooltip": false
     }
 }
-
