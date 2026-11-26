@@ -1,0 +1,12 @@
+local terminal    = "kitty"
+local fileManager = "kitty yazi"
+local menu        = "hyprlauncher"
+local browser     = "firefox"
+local torrent     = "qbittorrent"
+local office      = "libreoffice"
+local email       = "betterbird"
+local notes       = "obsidian"
+local paint       = "kolourpaint"
+local telegram    = "/usr/bin/Telegram"
+local rider       = "/home/zelay/.local/opt/JetBrains_Rider/bin/rider.s>
+local localsend   = "localsend"
